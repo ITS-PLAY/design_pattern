@@ -43,33 +43,6 @@ class DrinkingMode(Observer):
             print("水已烧好！ 可以用来饮用")
 
 
-"""监听模式的框架"""
-
-
-class Observer(metaclass=ABCMeta):
-
-    @abstractmethod
-    def update(self, observable, object):
-        pass
-
-
-class Observable:
-    def __init__(self):
-        self.__observers = []
-
-    def addObserver(self, observer):
-        self.__observers.append(observer)
-
-    def removeObserver(self, observer):
-        self.__observers.remove(observer)
-
-    def notifyObservers(self, object=0):
-        for o in self.__observers:
-            o.update(self, object)
-
-
-
-
 if __name__ == '__main__':
     heater = WaterHeater()
     washingObser = WashingMode()
